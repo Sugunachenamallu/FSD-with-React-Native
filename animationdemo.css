@@ -1,0 +1,26 @@
+.demo{
+    width:150px;
+    height:150px;
+    background-color: black;
+    animation-name: Myanimation;
+    animation-duration: 2s;
+    animation-iteration-count: 2;
+    position:relative;
+}
+
+
+
+@keyframes Myanimation{
+
+    from{
+        background-color: black;
+        left:0px;
+        border-radius: 0px;
+    }
+    to{
+       background-color: red;
+       left:400px;
+       border-radius:75%;
+    }
+
+}

@@ -1,0 +1,44 @@
+.parent{
+    width:200px;
+    height:200px;
+    background-color:palevioletred;
+    position:relative;
+    animation-name: myanimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+.parent1{
+    width:200px;
+    height:200px;
+     position:relative;
+     background-color: black;
+    animation-name: myanimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+.parent2{
+    width:200px;
+    height:200px;
+    position:relative;
+    background-color: red;
+    animation-name: myanimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+@keyframes myanimation {
+    0%{
+        left:0px;
+    }
+    50%{
+        /* background-color: blueviolet; */
+        left:100px;
+    }
+    100%{
+        /* background-color: lightgreen; */
+        left:400px;
+    }
+    
+}
