@@ -1,43 +1,24 @@
-function fun1(value){
-   return new Promise(function(resolved){
-        setTimeout(function(){
-           resolved(1);
-        },1000);
+function getUserDetails(id){
+    return new Promise((resolve,reject)=>{
+        console.log("fun1 called");
+        resolve({userRoll:"rollnummber"});
     })
 };
-function fun2(value){
-   return new Promise(function(resolved){
-        setTimeout(function(){
-           resolved(value+1);
-        },1000);
-    })
+function getUserSubjects(userRoll){
+         return new Promise((resolve,reject)=>{
+            console.log("fun2 called");
+            resolve({userSubId:'en-1'});
+         })
 };
-function fun3(value){
-   return new Promise(function(resolved){
-        setTimeout(function(){
-           resolved(value+1);
-        },1000);
-    })
+function getUserMarks(userSubId){
+    return new Promise((resolve,reject)=>{
+        console.log("fun3 called");
+        resolve("getting user marks with subid",userSubId)
+})
 };
-// fun1().then(function(){
-//     console.log("fun-1 completed");
-//     fun2().then(function(){
-//         console.log("fun-2 completed");
-//         fun3().then(function(){
-//             console.log("fun-3 completed");
-//         })
-//     })
-// });
-async function Execute(){
-    try{
-             const result1 = await fun1();
-             const res2 =await fun2(result1);
-             const res3 = await fun3(res2);
-              console.log(res3);
-    }
-    catch(err)
-    {
-        console.log(err);
-    }
-}
-Execute();
+getUserDetails("123").then((result)=>{
+    return getUserSubjects(result.rollnumber)
+}).then((result)=>{
+    return getUserMarks(result.userSubId)
+}).then((result)=>console.log(result))
+  .catch((error)=>console.log(error))
